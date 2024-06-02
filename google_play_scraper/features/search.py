@@ -37,10 +37,16 @@ def search(
 
             dataset[key] = value
 
-    try:
-        top_result = dataset["ds:4"][0][1][0][23][16]
-    except Exception:
-        top_result = None
+    top_result_idx = [0, 1]
+
+    for idx in top_result_idx:
+        try:
+            top_result = dataset["ds:4"][0][1][idx][23][16]
+
+            if top_result:
+                break
+        except Exception:
+            top_result = None
 
     success = False
     # different idx for different countries and languages
