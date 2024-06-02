@@ -34,6 +34,9 @@ class _ContinuationToken:
         self.filter_device_with = filter_device_with
 
 
+ContinuationToken = _ContinuationToken
+
+
 def _fetch_review_items(
     url: str,
     app_id: str,
@@ -161,7 +164,7 @@ def reviews_all(app_id: str, sleep_milliseconds: int = 0, **kwargs) -> list:
             app_id,
             count=MAX_COUNT_EACH_FETCH,
             continuation_token=continuation_token,
-            **kwargs
+            **kwargs,
         )
 
         result += _result
